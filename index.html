@@ -6,47 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <style>
-        body { margin: 0; background-color: #f1f1f1; font-family: 'Segoe UI', sans-serif; }
-        model-viewer { 
-            width: 100%; 
-            height: 100vh; /* Tăng diện tích hiển thị để kích thích thị giác */
-            background-color: #ffffff; 
-            --poster-color: transparent;
-        }
-        .instructions { 
-            position: absolute; top: 20px; width: 100%; z-index: 10;
-            text-align: center; color: #444; font-size: 14px; 
-            text-shadow: 0 1px 2px rgba(255,255,255,0.8);
-        }
+        body { margin: 0; background-color: #f8f8f8; font-family: 'Segoe UI', sans-serif; }
+        model-viewer { width: 100%; height: 92vh; background-color: #ffffff; }
+        .instructions { padding: 12px; text-align: center; background: #222; color: #fff; font-size: 14px; font-weight: 500; }
     </style>
 </head>
 <body>
-    <div class="instructions">Dùng ngón tay xoay để soi chi tiết chất liệu</div>
+    <div class="instructions">Xoay để xem chất liệu túi. Nhấn nút bên dưới để đặt túi lên bàn của bạn.</div>
 
     <model-viewer 
         src="orange_bag.glb" 
         ios-src="orange_bag.usdz"
         alt="Túi xách cao cấp - Orange Edition"
         
-        /* TỐI ƯU ÁNH SÁNG & CẢM GIÁC XÚC GIÁC */
-        exposure="1.5" 
-        shadow-intensity="0.5" 
-        shadow-softness="1"
-        camera-orbit="45deg 75deg auto"
-        environment-image="legacy" 
+        ar-scale="fixed" 
+       
+        exposure="1.2" 
+        shadow-intensity="2.0"
+        shadow-softness="0.3"
+        environment-image="neutral"
         tone-mapping="commerce"
         
-        /* CẤU HÌNH AR QUYẾT LIỆT */
-        ar 
-        ar-modes="webxr scene-viewer quick-look" 
-        ar-scale="auto"
         camera-controls 
         auto-rotate 
         interaction-prompt="auto"
-        touch-action="pan-y">
+        ar 
+        ar-modes="webxr scene-viewer quick-look">
         
-        <button slot="ar-button" style="background-color: #000; color: white; border-radius: 8px; border: none; position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); padding: 16px 32px; font-size: 14px; font-weight: 600; letter-spacing: 1px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
-            THỬ TRONG KHÔNG GIAN CỦA BẠN
+        <button slot="ar-button" style="background-color: #d35400; color: white; border-radius: 25px; border: none; position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); padding: 15px 30px; font-weight: bold; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+          💼 XEM TRONG KHÔNG GIAN THỰC (AR)
         </button>
     </model-viewer>
 </body>
